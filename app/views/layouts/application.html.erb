@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Final Project Janetljennings" %></title>
+    <title>Habit Tracker<%= " | "+yield(:title) unless yield(:title).blank? %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -18,6 +18,42 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <%= link_to 'Habit Tracker', root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <%= nav_link 'Home', root_path %>
+            <%= nav_link 'About', about_path %>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container-fluid">
+      <div id="flash-messages" class="w-75" >
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == 'notice' ? 'primary' : 'danger'%> alert-dismissable fase show d-flex justify-content-between" role="alert">
+            <p><string><%= msg %></strong></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <% if @show_title %>
+          <div class="col">
+            <h1><%= yield(:title) %></h1>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
   </body>
 </html>
