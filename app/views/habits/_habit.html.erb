@@ -1,0 +1,5 @@
+<div id="<%= dom_id(habit) %>" class="habit">
+    <p><strong>Name:</strong> <%= link_to_unless_current habit.name, habit %></p>
+    <p><strong>Frequency:</strong> <%= habit.frequency %></p>
+    <p><strong>Start Date:</strong> <%= habit.start_date %></p>
+</div>

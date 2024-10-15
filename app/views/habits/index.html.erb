@@ -1,0 +1,9 @@
+<% title "Habits" %>
+
+<% @habits.each do |habit| %>
+    <%= render habit %>
+<% end %>
+
+<p>
+    <%= link_to "Create New Habit", new_habit_path, class: "btn btn-primary" %>
+</p>

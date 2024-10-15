@@ -1,0 +1,6 @@
+<% title "View Task" %>
+
+<%= render @habit %>
+
+<%= link_to "Edit", edit_habit_path(@habit) %> | <%= link_to "Back", habits_path %>
+<%= button_to "Delete", @habit, method: :delete, class: 'btn btn-secondary', form: {data: {turbo_confirm: "Are you sure?"} } %>

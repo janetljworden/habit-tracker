@@ -1,0 +1,6 @@
+<%= bootstrap_form_with(model: @habit, local: true) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :frequency %>
+    <%= f.datetime_field :start_date %>
+    <%= f.primary @habit.persisted? ? "Update Habit" : "Create Habit" %>
+<% end %>
