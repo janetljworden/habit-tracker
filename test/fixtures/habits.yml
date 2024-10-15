@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  frequency: MyString
+  start_date: 2024-10-15 03:56:14
+
+two:
+  name: MyString
+  frequency: MyString
+  start_date: 2024-10-15 03:56:14
