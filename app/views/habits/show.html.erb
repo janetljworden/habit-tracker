@@ -1,6 +1,13 @@
-<% title "View Task" %>
+<% title @habit.name %>
 
-<%= render @habit %>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <p class="card-text">
+            <strong>Frequency:</strong> <%= @habit.frequency %><br>
+            <strong>Start Date:</strong> <%= @habit.start_date.strftime("%B %d, %Y") %>
+        </p>
+        <%= link_to "Edit", edit_habit_path(@habit), class: "btn btn-secondary" %> 
+    </div>
+</div>
 
-<%= link_to "Edit", edit_habit_path(@habit) %> | <%= link_to "Back", habits_path %>
-<%= button_to "Delete", @habit, method: :delete, class: 'btn btn-secondary', form: {data: {turbo_confirm: "Are you sure?"} } %>
+<%= link_to "Back", habits_path, class: 'primary-button' %>

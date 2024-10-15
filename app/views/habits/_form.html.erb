@@ -2,5 +2,5 @@
     <%= f.text_field :name %>
     <%= f.text_field :frequency %>
     <%= f.datetime_field :start_date %>
-    <%= f.primary @habit.persisted? ? "Update Habit" : "Create Habit" %>
+    <%= f.primary @habit.persisted? ? "Update" : "Create", class: "primary-button"%>
 <% end %>

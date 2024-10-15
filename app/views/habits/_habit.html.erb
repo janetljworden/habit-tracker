@@ -1,5 +1,12 @@
 <div id="<%= dom_id(habit) %>" class="habit">
-    <p><strong>Name:</strong> <%= link_to_unless_current habit.name, habit %></p>
-    <p><strong>Frequency:</strong> <%= habit.frequency %></p>
-    <p><strong>Start Date:</strong> <%= habit.start_date %></p>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= habit.name %></h5>
+        <p class="card-text">
+            <strong>Frequency:</strong> <%= habit.frequency %><br>
+            <strong>Start Date:</strong> <%= habit.start_date.strftime("%B %d, %Y") %>
+        </p>
+        <%= link_to_unless_current "View", habit, class: "btn btn-secondary" %>
+      </div>
+    </div>
 </div>
