@@ -6,7 +6,7 @@
             <strong>Frequency:</strong> <%= @habit.frequency %><br>
             <strong>Start Date:</strong> <%= @habit.start_date.strftime("%B %d, %Y") %>
         </p>
-        <%= link_to "Edit", edit_habit_path(@habit), class: "btn btn-secondary" %> 
+        <%= link_to "Edit", edit_habit_path(@habit), class: "btn btn-secondary" %> <%= link_to "View Entries", habit_entries_path(@habit), class: "btn btn-secondary" %>
     </div>
 </div>
 
