@@ -1,0 +1,5 @@
+<% title 'Edit Entry' %>
+
+<%= render 'form' %>
+
+<%= button_to "Delete", [@habit,@entry], method: :delete, class: 'delete-button', form: {data: {turbo_confirm: "Are you sure?"} } %>

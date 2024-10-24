@@ -1,5 +1,13 @@
 <div id="<%= dom_id(entry) %>" class="entry">
-    <h3><%= entry.date %></h3>
-    <p><%= entry.status %></p>
-    <p><%= entry.notes %></p>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= entry.date.strftime("%B %d, %Y") %></h5>
+            <p class="card-text">
+                <strong>Status:</strong> <%= entry.status %><br>
+                <strong>Notes:</strong> <%= entry.notes %>
+            </p>
+            <%= link_to_unless_current "View", habit_entry_path(@habit,entry), class: "btn btn-secondary" %>
+            <%= link_to "Edit", edit_habit_entry_path(@habit,entry), class: "btn btn-secondary" %>
+        </div>
+    </div>
 </div>

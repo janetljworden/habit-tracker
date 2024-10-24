@@ -2,4 +2,5 @@
 
 <%= render @habit.entries %>
 
+<%= link_to "Back", habit_path(@habit), class: "primary-button" %>
 <%= link_to "New Entry", new_habit_entry_path(@habit), class: "primary-button" %>

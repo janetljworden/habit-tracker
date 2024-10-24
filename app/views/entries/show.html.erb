@@ -1,3 +1,12 @@
-<%= title "Entry for " + @habit.name %>
+<%= title @entry.date.strftime("%B %d, %Y") %>
 
-<%= render @entry %>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <p class="card-text">
+            <strong>Status:</strong> <%= @entry.status %><br>
+            <strong>Notes:</strong> <%= @entry.notes %>
+        </p>
+    </div>
+</div>
+
+<%= link_to "Back", habit_entries_path(@habit), class: 'primary-button' %>
