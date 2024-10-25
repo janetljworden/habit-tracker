@@ -1,10 +1,11 @@
 <% title "My Habits" %>
 
-<% @habits.each do |habit| %>
-    <%= render habit %>
-<% end %>
+<div class="card-container">
+    <% @habits.each do |habit| %>
+        <%= render habit %>
+    <% end %>
+</div>
 
-
-<p>
-    <%= link_to "Create New Habit", new_habit_path, class: "primary-button" %>
-</p>
+<div class="button-container">
+    <%= link_to "New Habit", new_habit_path, class: "primary-button" %>
+</div>

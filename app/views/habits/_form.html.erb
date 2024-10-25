@@ -2,5 +2,11 @@
     <%= f.text_field :name %>
     <%= f.text_field :frequency %>
     <%= f.datetime_field :start_date %>
-    <%= f.primary @habit.persisted? ? "Update" : "Create", class: "primary-button"%>
+    <div class="button-container">
+        <%= f.primary @habit.persisted? ? "Update" : "Create", class: "primary-button"%>
+
+        <% if @habit.persisted? %>
+            <%= button_to "Delete", @habit, method: :delete, class: 'delete-button', form: {data: {turbo_confirm: "Are you sure?"} } %>
+        <% end %>
+    </div>
 <% end %>

@@ -1,5 +1,25 @@
 body {
-    background-color:honeydew
+    background-color: honeydew;
+}
+
+.titles {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 30%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
 }
 
 .navbar {
@@ -7,8 +27,16 @@ body {
     padding: 1rem;
 }
 
-.card {
-    margin-bottom: 20px;
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Adjust spacing between cards as needed */
+    justify-content: center; /* Center-aligns the cards in rows */
+    max-width: 100%;
+}
+
+.habit {
+    width: 18rem; /* Ensures each habit card has the same width */
 }
 
 .primary-button {

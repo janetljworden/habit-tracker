@@ -1,6 +1,10 @@
 <%= title @habit.name + " Entries" %>
 
-<%= render @habit.entries %>
+<div class="card-container">
+    <%= render @habit.entries %>
+</div>
 
-<%= link_to "Back", habit_path(@habit), class: "primary-button" %>
-<%= link_to "New Entry", new_habit_entry_path(@habit), class: "primary-button" %>
+<div class="button-container">
+    <%= link_to "Back", habit_path(@habit), class: "primary-button" %>
+    <%= link_to "New Entry", new_habit_entry_path(@habit), class: "primary-button" %>
+</div>

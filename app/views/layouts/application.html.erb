@@ -47,19 +47,20 @@
       <div>
         <% if @show_title %>
           <div class="col">
-            <h1><%= yield(:title) %></h1>
+            <h1 class="titles"><%= yield(:title) %></h1>
           </div>
         <% end %>
-        <%= yield %>
+        <div class="main">
+          <%= yield %>
+        </div>
       </div>
     </main>
 
     <div class="container">
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= nav_link 'Home', root_path %></a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= nav_link 'Habits', habits_path %></a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= nav_link 'About', about_path %></a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= nav_link 'Habits', root_path %></a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= nav_link 'Entries', about_path %></a></li>
         </ul>
         <p class="text-center text-body-secondary">&copy; 2024 Janet Lynn Jennings Worden</p>
       </footer>
