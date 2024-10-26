@@ -6,7 +6,7 @@
         <%= f.primary @entry.persisted? ? "Update" : "Create", class: "primary-button" %>
 
         <% if @entry.persisted? %>
-            <%= button_to "Delete", [@habit,@entry], method: :delete, class: 'delete-button', form: { data: { turbo_confirm: "Are you sure?" } } %>
+            <%= button_to "Delete", [@habit,@entry], method: :delete, class: 'delete-button', form: { data: { turbo_confirm: "Are you sure?" } }, data: { turbo: false } %>
         <% end %>
     </div>
 <% end %>
