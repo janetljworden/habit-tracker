@@ -1,1 +1,8 @@
-<% title @user.name %>
+<% title @user.name + "'s Account" %>
+
+<div class="button-container">
+    <% if @user.persisted? %>
+        <%= link_to "Edit Account", edit_user_path(@user), class: "primary-button" %></br>
+        <%= button_to "Delete Account", @user, method: :delete, class: 'delete-button', form: {data: {turbo_confirm: "Are you sure?"} } %>
+    <% end %>
+</div>

@@ -19,6 +19,22 @@ class UsersController < ApplicationController
   def show
   end
   
+  def edit
+  end
+
+  def update
+    if @user.update user_params
+      redirect_to @user, notice: "Account Updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to root_path, alert: "Account Deleted."
+  end
+
   private
   
   def user_params
