@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_24_201045) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_08_031854) do
   create_table "entries", force: :cascade do |t|
     t.integer "habit_id"
     t.datetime "date"
@@ -24,6 +24,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_201045) do
     t.string "name"
     t.string "frequency"
     t.datetime "start_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
