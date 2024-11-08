@@ -31,6 +31,15 @@
             <%= nav_link 'Habits', root_path %>
             <%= nav_link 'Entries', about_path %>
           </ul>
+          <ul class="navbar-nav mb-2 mb-md-0">
+            <% if current_user %>
+              <%= nav_link current_user.name, user_path(current_user) %>
+              <%= nav_link 'Logout', logout_path %>
+            <% else %>
+              <%= nav_link 'Login', login_path %>
+              <%= nav_link 'Sign Up', signup_path %>
+            <% end %>
+          </ul>
         </div>
       </div>
     </nav>

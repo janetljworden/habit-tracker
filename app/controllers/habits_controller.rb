@@ -1,5 +1,5 @@
 class HabitsController < ApplicationController
-  before_action :load_task, except: [:new, :index, :create]
+  before_action :load_habit, except: [:new, :index, :create]
   
   # GET /habits
   # retrieves and displays all habits
@@ -59,7 +59,7 @@ class HabitsController < ApplicationController
   end
 
   # loads a specific habit based on its ID
-  def load_task
+  def load_habit
     @habit = Habit.find params[:id]
   end
 

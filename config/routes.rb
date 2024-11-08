@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "signup" => "users#new"
+  get "login" => "sessions#new"
+  get "logout" => "sessions#destroy"
+  resources :users, except: [:index, :new]
+  resources :sessions, except: [:index, :edit, :update, :show, :new, :destroy]
   resources :habits do
     resources :entries
   end
