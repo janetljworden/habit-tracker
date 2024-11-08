@@ -28,8 +28,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <%= nav_link 'Habits', root_path %>
-            <%= nav_link 'Entries', about_path %>
+            <% if current_user %>
+              <%= nav_link 'Habits', root_path %>
+              <%= nav_link 'Entries', about_path %>
+            <% end %>
           </ul>
           <ul class="navbar-nav mb-2 mb-md-0">
             <% if current_user %>

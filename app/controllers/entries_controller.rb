@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  before_action :authenticate
   before_action :load_habit
   before_action :load_entry, except: [:index, :new, :create]
   
@@ -48,6 +49,6 @@ class EntriesController < ApplicationController
   end
   
   def load_habit
-    @habit = Habit.find params[:habit_id]
+    @habit = current_user.habits.find params[:habit_id]
   end
 end

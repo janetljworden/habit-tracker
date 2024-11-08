@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate, except:  [:new, :create, :show]
+  before_action :load_user, except: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -12,6 +15,9 @@ class UsersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def show
+  end
   
   private
   
@@ -20,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def load_user
-    @habit = Habit.find params[:id]
+    @user = User.find params[:id]
   end
 end

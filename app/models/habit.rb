@@ -1,4 +1,5 @@
 class Habit < ApplicationRecord
+    belongs_to :user
     has_many :entries
     
     validates :name, presence: true
@@ -7,7 +8,7 @@ class Habit < ApplicationRecord
     validate :start_date_cannot_be_past_date
 
     def start_date_cannot_be_past_date
-        if start_date < Date.today
+        if !self.persisted? && start_date < Date.today
             errors.add(:start_date, "Sorry! Your start date cannot be a past date")
         end
     end

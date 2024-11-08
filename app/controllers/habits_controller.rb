@@ -1,10 +1,11 @@
 class HabitsController < ApplicationController
+  before_action :authenticate
   before_action :load_habit, except: [:new, :index, :create]
   
   # GET /habits
   # retrieves and displays all habits
   def index
-    @habits = Habit.all
+    @habits = current_user.habits.all
   end
 
   # GET /habits/new
@@ -17,6 +18,7 @@ class HabitsController < ApplicationController
   # submits the form data to create a new habit
   def create
     @habit = Habit.new(habit_params)
+    @habit.user = current_user
     if @habit.save
       redirect_to habits_path, notice: "Habit Created."
     else
@@ -60,7 +62,7 @@ class HabitsController < ApplicationController
 
   # loads a specific habit based on its ID
   def load_habit
-    @habit = Habit.find params[:id]
+    @habit = current_user.habits.find params[:id]
   end
 
 end
