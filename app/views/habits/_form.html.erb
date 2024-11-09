@@ -6,7 +6,7 @@
         <%= f.primary @habit.persisted? ? "Update" : "Create", class: "primary-button"%>
 
         <% if @habit.persisted? %>
-            <%= button_to "Delete", @habit, method: :delete, class: 'delete-button', form: {data: {turbo_confirm: "Are you sure?"} } %>
+            <%= button_to "Delete", [@habit], method: :delete, class: 'delete-button', form: {data: {turbo_confirm: "Are you sure?"} } %>
         <% end %>
     </div>
 <% end %>

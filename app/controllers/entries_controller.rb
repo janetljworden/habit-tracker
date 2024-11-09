@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :authenticate
+  before_action :ensure_logged_in
   before_action :load_habit
   before_action :load_entry, except: [:index, :new, :create]
   

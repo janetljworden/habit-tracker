@@ -1,5 +1,5 @@
 class HabitsController < ApplicationController
-  before_action :authenticate
+  before_action :ensure_logged_in
   before_action :load_habit, except: [:new, :index, :create]
   
   # GET /habits
