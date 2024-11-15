@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   get "login" => "sessions#new"
   get "logout" => "sessions#destroy"
+  get "/auth/github/callback" => "authentications#create"
+  # or "/auth/:provider/callback" for more than one third party authenticator
   resources :users, except: [:index, :new]
   resources :sessions, except: [:index, :edit, :update, :show, :new, :destroy]
   resources :habits do

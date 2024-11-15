@@ -5,8 +5,10 @@
     <% end %>
     <%= f.text_field :name %>
     <%= f.email_field :email %>
-    <%= f.password_field :password, label: @user.persisted? ? "New Password" : "Password" %>
-    <%= f.password_field :password_confirmation, label: @user.persisted? ? "Confirm New Password" : "Confirm Password" %>
+    <% if @user.has_password? %>
+        <%= f.password_field :password, label: @user.persisted? ? "New Password" : "Password" %>
+        <%= f.password_field :password_confirmation, label: @user.persisted? ? "Confirm New Password" : "Confirm Password" %>
+    <% end %>
     <div class="button-container">
         <%= f.primary @user.persisted? ? "Update" : "Sign Up", class: "primary-button" %>
     </div>
