@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.where(email: params[:email]).first
     if @user && @user.authenticate(params[:password])
       login(@user)
-      redirect_to root_path, notice: "Logged in"
+      redirect_to habits_path, notice: "Logged in"
     else 
       redirect_to login_path, alert: "Invalid Email or Password"
     end
