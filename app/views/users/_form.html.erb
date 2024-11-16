@@ -1,6 +1,6 @@
 <%= bootstrap_form_with(model: @user) do |f| %>
     <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-    <% if @user.persisted? %>
+    <% if @user.persisted? && @user.has_password? %>
         <%= f.password_field :old_password, label: "Current Password" %>
     <% end %>
     <%= f.text_field :name %>

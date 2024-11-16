@@ -16,7 +16,6 @@ class UsersController < ApplicationController
       @user = User.new_from_hash session[:user_hash]
       @user.name = user_params[:name]
       @user.email = user_params[:email]
-
     else
       @user = User.new(user_params)
     end
@@ -36,15 +35,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.authenticate(user_params[:old_password])
-      if @user.update(user_params.except(:old_password))
-        redirect_to @user, notice: "Account Updated."
+    if @user.has_password?
+      if @user.authenticate(user_params[:old_password])
+        if @user.update(user_params.except(:old_password))
+          redirect_to @user, notice: "Account Updated."
+        else
+          render :edit, status: :unprocessable_entity
+        end
       else
+        flash.now[:alert] = "Please provide your current password to update your account."
         render :edit, status: :unprocessable_entity
       end
     else
-      flash.now[:alert] = "Please provide your current password to update your account."
-      render :edit, status: :unprocessable_entity
+      if @user.update(user_params.except(:password,:password_confirmation,:old_password))
+        redirect_to @user, notice: "Account Updated."
+      end
     end
   end
 
