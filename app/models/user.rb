@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :habits
+    has_many :categories
     has_secure_password
 
     validates :name, presence: :true

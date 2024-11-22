@@ -1,7 +1,14 @@
 <%= bootstrap_form_with(model: @habit, local: true) do |f| %>
     <%= f.text_field :name %>
+    <%= f.collection_select :category_id, 
+                            current_user.categories, 
+                            :id, 
+                            :title, 
+                            prompt: "Select a Category", 
+                            class: "form-control" %>
     <%= f.text_field :frequency %>
     <%= f.datetime_field :start_date %>
+
     <div class="button-container">
         <%= f.primary @habit.persisted? ? "Update" : "Create", class: "primary-button"%>
 
