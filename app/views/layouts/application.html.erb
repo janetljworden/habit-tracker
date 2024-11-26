@@ -29,6 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <% if current_user %>
+              <%= nav_link 'Categories', categories_path %>
               <%= nav_link 'Habits', habits_path %>
               <%= nav_link 'Entries', about_path %>
             <% end %>

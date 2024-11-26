@@ -3,7 +3,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= habit.name %></h5>
         <p class="card-text">
-            <strong>Category:</strong> <%= habit.category_id %><br>
+            <strong>Category:</strong> <%= habit.category.title %><br>
             <strong>Frequency:</strong> <%= habit.frequency %><br>
             <strong>Start Date:</strong> <%= habit.start_date.strftime("%B %d, %Y") %>
         </p>

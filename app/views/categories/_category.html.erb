@@ -1,0 +1,19 @@
+<div id="<%= dom_id(category) %>" class="habit">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= category.title %></h5>
+        
+        <% if category.habits.any? %>
+            <ul class="card-text">
+            <% category.habits.each do |habit| %>
+                <li><%= link_to habit.name, category_habit_path(category, habit), class: "text-decoration-none text-dark" %></li>
+            <% end %>
+            </ul>
+        <% else %>
+            <p>No habits yet.</p>
+        <% end %>
+
+        <%= link_to "Edit", edit_category_path(category), class: "btn btn-secondary" %>
+      </div>
+    </div>
+</div>

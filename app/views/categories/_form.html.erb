@@ -1,0 +1,7 @@
+<%= bootstrap_form_with(model: @category, local: true) do |f| %>
+    <%= f.text_field :title %>
+
+    <div class="button-container">
+        <%= f.primary @category.persisted? ? "Update" : "Create", class: "primary-button"%>
+    </div>
+<% end %>

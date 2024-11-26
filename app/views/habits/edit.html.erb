@@ -1,5 +1,11 @@
-<% title 'Edit Habit: ' + @habit.name %>
+<% title 'Edit ' + @habit.name %>
 
 <div class='forms'>
     <%= render 'form' %>
+</div>
+
+<div class="button-container">
+    <% if @habit.persisted? %>
+        <%= button_to "Delete", [@habit], method: :delete, class: 'delete-button', form: {data: {turbo_confirm: "Are you sure?"} } %>
+    <% end %>
 </div>

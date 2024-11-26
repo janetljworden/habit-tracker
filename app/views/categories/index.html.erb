@@ -1,0 +1,11 @@
+<% title "My Categories" %>
+
+<div class="card-container">
+    <% @categories.each do |category| %>
+        <%= render category %>
+    <% end %>
+</div>
+
+<div class="button-container">
+    <%= link_to "New Category", new_category_path, class: "primary-button" %>
+</div>

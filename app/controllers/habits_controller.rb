@@ -57,7 +57,7 @@ class HabitsController < ApplicationController
 
   # allow specific attributes for mass assignment
   def habit_params
-    params.require(:habit).permit(:name,:frequency,:start_date)
+    params.require(:habit).permit(:name,:frequency,:start_date,:category_id)
   end
 
   # loads a specific habit based on its ID

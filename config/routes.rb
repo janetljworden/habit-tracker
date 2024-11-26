@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   # or "/auth/:provider/callback" for more than one third party authenticator
   resources :users, except: [:index, :new]
   resources :sessions, except: [:index, :edit, :update, :show, :new, :destroy]
+  resources :categories do
+    resources :habits do
+      resources :entries
+    end
+  end
   resources :habits do
     resources :entries
   end

@@ -1,0 +1,11 @@
+<% title 'Edit Category' %>
+
+<div class='forms'>
+    <%= render 'form' %>
+</div>
+
+<div class="button-container">
+    <% if @category.persisted? %>
+        <%= button_to "Delete", [@category], method: :delete, class: 'delete-button', form: {data: {turbo_confirm: "Are you sure?"} } %>
+    <% end %>
+</div>
