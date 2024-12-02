@@ -243,6 +243,9 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
+    pg_search (2.3.7)
+      activerecord (>= 6.1)
+      activesupport (>= 6.1)
     pry (0.15.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -423,6 +426,7 @@ DEPENDENCIES
   mocha
   omniauth-github
   omniauth-rails_csrf_protection
+  pg_search
   puma (>= 5.0)
   rails (~> 7.2.1)
   rubocop-rails-omakase
