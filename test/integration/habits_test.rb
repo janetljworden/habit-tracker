@@ -46,4 +46,42 @@ class HabitsTest < ActionDispatch::IntegrationTest
     assert_text "Created"
   end
 
+  test "users can edit, update, and view habits" do
+    user = login_user
+    habit = FactoryBot.create :habit, user: user
+
+    visit habits_path
+
+    click_on "View"
+
+    assert_text habit.name
+
+    click_on "Edit"
+
+    fill_in "Name", with: "Test Update"
+
+    click_button "Update"
+
+    assert_text "Updated"
+    assert_text "Test Update"
+  end
+
+  test "users can delete habits" do
+    user = login_user
+    habit = FactoryBot.create :habit, user: user
+
+    visit habits_path
+
+    click_on "View"
+    assert_text habit.name
+
+    click_on "Edit"
+    assert_text "Edit " + habit.name
+
+    click_button "Delete"
+    assert_text "Deleted"
+
+    refute page.has_content?(habit.name)
+  end
+
 end

@@ -2,9 +2,9 @@ require "test_helper"
 
 class HabitTest < ActiveSupport::TestCase
   test "has a valid factory" do
-    remhabitinder = FactoryBot.build :habit
+    habit = FactoryBot.build :habit
 
-    assert reminder.valid?
+    assert habit.valid?
   end
 
   test "requires a user" do
@@ -14,7 +14,7 @@ class HabitTest < ActiveSupport::TestCase
     refute habit.valid?
   end
 
-  test "requires a title" destroy
+  test "requires a title" do
     habit = FactoryBot.build :habit
     habit.name = ""
 
