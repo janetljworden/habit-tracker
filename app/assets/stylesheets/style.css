@@ -30,13 +30,13 @@ body {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px; /* Adjust spacing between cards as needed */
-    justify-content: center; /* Center-aligns the cards in rows */
+    gap: 16px;
+    justify-content: center;
     max-width: 100%;
 }
 
 .habit {
-    width: 18rem; /* Ensures each habit card has the same width */
+    width: 18rem;
 }
 
 .primary-button {
@@ -65,4 +65,25 @@ body {
 
 .delete-button:hover {
     background-color:rgb(144, 28, 28);
+}
+
+.search-container {
+    justify-content: center;
+    display: flex;
+    padding-bottom: 40px;
+}
+
+.search-fields {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    margin: 0;
+    padding: 5px;
+}
+
+h5 {
+    margin: 0;
 }

@@ -5,11 +5,8 @@ class HabitsController < ApplicationController
   # GET /habits
   # retrieves and displays all habits
   def index
-    if params[:query].present?
-      @habits = current_user.habits.search_by_name_and_category(params[:query])
-    else
-      @habits = current_user.habits.all
-    end
+    @q = current_user.habits.ransack(params[:q])
+    @habits = @q.result
   end
 
   # GET /habits/new

@@ -1,6 +1,4 @@
 class Habit < ApplicationRecord
-    include PgSearch::Model
-
     belongs_to :user
     belongs_to :category
     has_many :entries
@@ -9,9 +7,8 @@ class Habit < ApplicationRecord
     validates :frequency, presence: true
     validates :start_date, presence: true
 
-    pg_search_scope :search_by_name_and_category,
-                    against: [:name, :category],
-                    using: {
-                        tsearch: { prefix: true }
-                    }
+    # define searchable attributes for Ransack
+    def self.ransackable_attributes(auth_object = nil)
+        ["name", "frequency"]
+    end
 end
