@@ -11,5 +11,11 @@ FactoryBot.define do
         f.start_date { Time.zone.now+1.day }
         f.frequency { "Daily" }
         f.association :user
+        f.association :category
+    end
+
+    factory :category do |f|
+        f.sequence(:title) { |n| "Category #{n}" }
+        f.association :user
     end
 end
