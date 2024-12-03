@@ -1,7 +1,7 @@
 require "test_helper"
 
 class HabitsTest < ActionDispatch::IntegrationTest
-  test "only logged in users can see reminders" do
+  test "only logged in users can see habits" do
     visit root_path
     refute page.has_content?("My Habits")
 
