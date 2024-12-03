@@ -53,15 +53,12 @@ class HabitsTest < ActionDispatch::IntegrationTest
     visit habits_path
 
     click_on "View"
-
     assert_text habit.name
 
     click_on "Edit"
-
     fill_in "Name", with: "Test Update"
 
     click_button "Update"
-
     assert_text "Updated"
     assert_text "Test Update"
   end
